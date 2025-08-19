@@ -1,0 +1,10 @@
+gawr gura model https://sketchfab.com/3d-models/gawr-gura-05db8ee83b54443683442ad78f19e174
+guide https://codepen.io/rachsmith/post/beginning-with-3d-webgl-pt-3-materials
+floor texture https://www.freepik.com/free-vector/wood-planks-texture-background-parquet-flooring_886477.htm#fromView=keyword&page=1&position=0&uuid=db4a067e-c4b4-4755-b211-82632b857221&query=Floor+Texture
+brick texture https://polyhaven.com/a/red_brick
+chair model https://sketchfab.com/3d-models/victorian-chair-6479a1900b614b59b26784c3a7922eb3#download
+table model https://sketchfab.com/3d-models/alchemy-table-game-model-ecc545e35e7c4d5dba91f94b98ba95b5#download
+gun crate model https://sketchfab.com/3d-models/gun-crate-4a8b42e5514d43438a2567bad810d952#download
+grass https://opengameart.org/content/30-grass-textures-tilable
+retro tree models: https://elegantcrow.itch.io/psx-retro-style-tree-pack
+Lost city of atlantis main menu  https://www.pilotguides.com/articles/the-lost-city-of-atlantis-lake-titicaca/

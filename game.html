@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lost Tides - Game</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    #info {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      z-index: 100;
+      font-size: 12px;
+    }
+
+    /* Pause menu styles */
+    #pause-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.8);
+      color: white;
+      font-family: 'Courier New', monospace;
+      z-index: 3000;
+      text-align: center;
+      padding-top: 20vh;
+    }
+
+    #pause-menu button {
+      font-size: 20px;
+      margin: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background-color: #222;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    #pause-menu button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Game content -->
+  <div id="content">
+    <script type="module" src="/main.js"></script>
+  </div>
+
+  <!-- Pause Menu Overlay -->
+  <div id="pause-menu">
+    <h2>Paused</h2>
+    <button onclick="resumeGame()">Resume</button>
+    <button onclick="backToMenu()">Main Menu</button>
+  </div>
+
+  <!-- Footer -->
+  <div id="info">
+    Gawr Gura © Cover Corp. This is an unofficial fan project 3D model by MMSkecthfab on Sketchfab (CC BY 4.0)
+  </div>
+
+  <script>
+    let isPaused = false;
+
+    // Show pause menu and pause game logic
+    function pauseGame() {
+      isPaused = true;
+      document.getElementById('pause-menu').style.display = 'block';
+
+      // TODO: Add your game-specific pause logic here, e.g. stop animation/game loop, mute audio, etc.
+      console.log("Game paused");
+    }
+
+    // Hide pause menu and resume game logic
+    function resumeGame() {
+      isPaused = false;
+      document.getElementById('pause-menu').style.display = 'none';
+
+      // TODO: Add your game-specific resume logic here, e.g. restart animation/game loop, unmute audio, etc.
+      console.log("Game resumed");
+    }
+
+    // Go back to main menu page
+    function backToMenu() {
+      window.location.href = 'index.html';
+    }
+
+    // Listen for ESC key to toggle pause menu
+    window.addEventListener('keydown', (event) => {
+      if (event.key === "Escape") {
+        if (isPaused) {
+          resumeGame();
+        } else {
+          pauseGame();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

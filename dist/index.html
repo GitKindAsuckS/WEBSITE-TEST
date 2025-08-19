@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lost Tides - Main Menu</title>
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/base-02');
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    #background-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('Lost_City_of_Atlantis.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px);
+      z-index: 900;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+    }
+
+    #background-overlay::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+    }
+
+    #main-menu {
+      font-family: 'Base 02', sans-serif;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1000;
+      transition: opacity 0.5s ease;
+      opacity: 1;
+    }
+
+    #main-menu h1 {
+      font-size: 48px;
+      margin-bottom: 40px;
+    }
+
+    .menu-button {
+      color: white;
+      font-family: 'Courier New', monospace;
+      display: block;
+      margin: 10px auto;
+      padding: 7px 15px;
+      font-size: 24px;
+      background-color: transparent;
+      border: 1px solid #969696;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 200px;
+      transition: background-color 0.3s;
+    }
+
+    .menu-button:hover {
+      background-color: #555;
+    }
+
+    #info {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      z-index: 100;
+      font-size: 12px;
+    }
+
+    #credits-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 2000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: 'Courier New', monospace;
+    }
+
+    #credits-panel {
+      text-align: center;
+      padding: 30px;
+    }
+
+    #options-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 2000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: 'Courier New', monospace;
+    }
+
+    #options-panel {
+      text-align: center;
+      padding: 30px;
+    }
+
+    #options-panel p {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="background-overlay"></div>
+
+  <div id="main-menu">
+    <h1>Lost Tides</h1>
+    <button class="menu-button" onclick="startGame()">Start Game</button>
+    <button class="menu-button" onclick="showOptions()">Options</button>
+    <button class="menu-button" onclick="showCredits()">Credits</button>
+    <button class="menu-button" onclick="exitGame()">Exit</button>
+  </div>
+
+  <div id="credits-overlay">
+    <div id="credits-panel">
+      <h2>Credits</h2>
+      <p><strong>Gawr Gura 3D Model</strong>: MMSkecthfab (Sketchfab) — CC Attribution</p>
+      <p><strong>Gawr Gura’s Trident (3D Model)</strong>: Akio (Sketchfab) — CC Attribution</p>
+      <p><strong>3D/WebGL Materials Guide</strong>: Rachel Smith — Beginning with 3D WebGL (pt. 3): Materials</p>
+      <p><strong>Floor Texture</strong>: parquets from Freepik — Freepik Company S.L.</p>
+      <p><strong>Brick Texture</strong>: Rob Tuytel via Poly Haven — CC0</p>
+      <p><strong>Victorian Chair Model</strong>: Abdullah Mohammed (Sketchfab) — CC Attribution</p>
+      <p><strong>Alchemy Table Model</strong>: Marcin Cecot (Sketchfab) — CC Attribution</p>
+      <p><strong>Gun Crate Model</strong>: SeveN (Sketchfab) — CC Attribution</p>
+      <p><strong>Grass Textures</strong>: p0ss via OpenGameArt.org — GPL 2.0</p>
+      <p><strong>Retro PSX‑Style Trees</strong>: Elegant Crow — CC0 (attribution appreciated)</p>
+      <p><strong>Lost City of Atlantis Inspiration</strong>: Pilot Guides article on Lake Titicaca</p>
+      <br>
+      <button class="menu-button" onclick="closeCredits()">Back</button>
+    </div>
+  </div>
+
+  <div id="options-overlay">
+    <div id="options-panel">
+      <h2>Options</h2>
+
+      <p><em>These settings are placeholders (experimental)</em></p>
+
+      <label for="volume">Volume (placeholder):</label><br>
+      <input type="range" id="volume" name="volume" min="0" max="100" disabled><br><br>
+
+      <label for="fullscreen">Fullscreen (placeholder):</label>
+      <input type="checkbox" id="fullscreen" disabled><br><br>
+
+      <button class="menu-button" onclick="closeOptions()">Back</button>
+    </div>
+  </div>
+
+  <div id="info">
+    Gawr Gura © Cover Corp. This is an unofficial fan project 3D model by MMSkecthfab on Sketchfab (CC BY 4.0)
+  </div>
+
+  <script>
+    function startGame() {
+      // Redirect to the game page (index.html)
+      window.location.href = 'game.html';
+    }
+
+    function showOptions() {
+      document.getElementById('options-overlay').style.display = 'flex';
+    }
+
+    function closeOptions() {
+      document.getElementById('options-overlay').style.display = 'none';
+    }
+
+    function showCredits() {
+      document.getElementById('credits-overlay').style.display = 'flex';
+    }
+
+    function closeCredits() {
+      document.getElementById('credits-overlay').style.display = 'none';
+    }
+
+    function exitGame() {
+      alert("Thanks for playing! Just close the game");
+    }
+  </script>
+
+</body>
+</html>
